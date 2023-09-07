@@ -278,6 +278,65 @@
 Prometheus won’t scrape targets with a label of team: frontend
 </details>
 <details>
-  <summary>66. What are the 3 statuses of Alertmanager Silences?</summary>
-   Active, Pending, Expired
+  <summary>66. What is definition of a metric</summary>
+   A numeric measurement (“A numeric measurement made over time” is incorrect as this is the definition of a time series)
+</details>
+<details>
+<summary>67. Which one of these <b>label values</b> is <b>incorrect</b>: <code>val</code>, <code>label-value-1</code>, <code>2nd_label_value</code>, <code>$__maybe_valid</code>?</summary>
+  Unlike label names, there is no restriction that label values cannot start with a number, dollar sign. Even emojis are valid for use in Prometheus labels since they are Unicode-encoded
+</details>
+<details>
+<summary>68. What query will return the currently firing alerts in Alertmanager?</summary>
+  No such query exists
+</details>
+<details>
+<summary>69. Let a Node Exporter scrape job be denoted by the label <code>job="node"</code>. Let there be two static instances for this job, <code>instance="node1"</code> and <code>instance="node2"</code>. Which queries returns a <code>1</code> when both nodes are currently being scraped successfully and a <code>0</code> otherwise?</summary>
+<code>min(up{job="node"})</code>
+</details>
+<details>
+<summary>70. You are instrumenting an application called <b>agate</b> for Prometheus. This application has a subsystem called <b>remed</b> that handles automated script-based remediations. You want to define a metric that gives the number of remediation <b>processes</b> currently <b>running</b>. What is the most appropriate “fully-qualified” metric name?</summary>
+agate_remed_processes_running
+</details>
+<details>
+  <summary>70. Is symptom or cause correspond to consumer-visible issues?
+</summary>
+  symptom
+</details>
+<details>
+  <summary>71. What can be used to drop specific targets from a scrape?</summary>
+  <code>relabel_configs</code> with action <code>keep</code>
+</details>
+<details>
+  <summary>72. What method of service discovery is BEST for identifying Kubernetes pods to scrape?</summary>
+  kubernetes_sd_configs
+</details>
+<details>
+  <summary>73. You are instrumenting an HTTP API with Prometheus metrics. You want to define a metric that tracks the latency of HTTP requests made to your API. You only care about the <b>average latency</b> and do not have a need for percentiles.
+Which of the following metric names and types is the MOST appropriate for this scenario?</summary>
+http_request_duration_seconds, Summary
+</details>
+<details>
+<summary>74. Let <b>cert_expiry</b> be a <b>gauge</b> metric whose value is a Unix timestamp (epoch time) representing the time a given certificate will expire.
+Which of the following queries gives the time in days until certificate expiration?</summary>
+(cert_expiry – time()) / 86400
+</details>
+<details>
+  <summary>75. Which of the following is NOT a best practice when it comes to writing a Prometheus exporter?</summary>
+  Include a version label on all exported metrics. This is not a best practice as it is recommend to use a designated build_info metric with a version label and dynamically attach it via PromQL grouping as-needed.
+</details>
+<details>
+  <summary>76. What configuration is used to effectively disable grouping of alerts for a particular Alertmanager route?</summary>
+  group_by: ['...']
+</details>
+<details>
+  <summary>77. Does summary or histogram  metrics generally cannot be aggregated?</summary>
+  Summary metrics generally cannot be aggregated. Summaries do not expose bucketed observations since evaluation happens on the client side.
+</details>
+<details>
+  <summary>78. What is a Service Level Indicator (SLI)?</summary>
+  A <b>quantitative</b> measure of some aspect of the level of service that is provided
+</details>
+<details>
+  <summary>79. Which of the following queries contains a temporal aggregation: <code>avg</code>, <code>avg_over_time</code>?</summary>
+  <code>avg_over_time(up[5m])</code> is the correct answer. Temporal aggregations are time-based. <code>avg by (instance) (up)</code> is incorrect as this query contains a dimensional aggregation (label-based)
 </details>
