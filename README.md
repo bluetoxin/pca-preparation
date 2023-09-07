@@ -255,24 +255,20 @@
   Prometheus Console
 </details>
 <details>
-  <summary>62. How can you temporarily mute/snooze/suppress an alert during maintenance in Prometheus?</summary>
-  Slience
-</details>
-<details>
-  <summary>63. How can you coordinate the simultaneous sending of multiple alerts with similar label sets in Prometheus?</summary>
+  <summary>62. How can you coordinate the simultaneous sending of multiple alerts with similar label sets in Prometheus?</summary>
   Grouping
 </details>
 <details>
-<summary>64. What is the purpose of the <code>conitnue</code> attribute in an Alertmanager route configuration?</summary>
+<summary>63. What is the purpose of the <code>conitnue</code> attribute in an Alertmanager route configuration?</summary>
   continue: specifies whether to continue processing subsequent routes after sending a notification for an alert
 </details>
 <details>
-  <summary>65. Which 2 attributes of an alerting rule can be used to include extra metadata?</summary>
+  <summary>64. Which 2 attributes of an alerting rule can be used to include extra metadata?</summary>
   annotations and labels
 </details>
 <details>
 
-<summary>66. What does this <code>relabel_configs</code> do?
+<summary>65. What does this <code>relabel_configs</code> do?
 <pre><code>relabel_configs:
   - source_labels: [team]
     regex: frontend
@@ -282,6 +278,6 @@
 Prometheus won’t scrape targets with a label of team: frontend
 </details>
 <details>
-  <summary>67. What are the 3 statuses of Alertmanager Silences?</summary>
+  <summary>66. What are the 3 statuses of Alertmanager Silences?</summary>
    Active, Pending, Expired
 </details>
